@@ -1,0 +1,77 @@
+<% include ../partials/header %>
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <% if(currentUser){ %>
+            <div >
+                <form action="/sights/<%=sight._id%>/contact" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="contact[name]" placeholder="Name" class="form-control">    
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="contact[email]" placeholder="Email" class="form-control">    
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="contact[number]" placeholder="Number" class="form-control">    
+                    </div>
+                    <div class="form-group">
+                    <input type="text"     name="contact[info]" placeholder="I am interested..." class="form-control">
+                    </div>
+                    <button class="btn-success btn-lg btn-block">Contact Agent!</button>
+                </form>
+            </div>
+            <% } %>
+        </div>
+        <div class="col-md-9">
+            <div class="thumbnail">
+                <img class="img-responsive" src="<%=sight.image%>">
+                <div class="caption-full">
+                    <h4 class="pull-right">$<%=sight.price %></h4>
+                    <h1><a><%=sight.name%></a></h1>
+                    <p><%=sight.description %></p>
+                    <p>Location:<%=sight.location %></p>
+                    <p class="pull-right"><em>Submitted by-<%=sight.author.username %></em></p>
+                    <br>
+                </div>
+                <%if(currentUser && currentUser._id.equals(sight.author.id)){%>
+                <div>
+                    <a href="/sights/<%=sight._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
+                    <form id="delete-form" action="/sights/<%=sight._id%>?_method=DELETE" method="POST">
+                        <button class="btn btn-xs btn-danger">Delete</button>
+                    </form>
+                </div>
+                <%}%>
+                
+            </div>
+            <div class="well">
+                <div class="text-right">
+                  <a href="/sights/<%=sight._id %>/comments/new" class="btn btn-success">Add new Comment?</a>  
+                </div>
+                <br>
+                <%sight.comments.forEach(function(comment){%>
+                <div class="row">
+                    <div class="col-md-12">
+                        <strong><%=comment.author.username%></strong>
+                        <span class="pull-right">10 days ago</span>
+                        <p>
+                            <%=comment.text%>
+                        </p>
+                    </div>
+                     <!--currentUser is set in app.js-->
+                    <%if(currentUser && currentUser._id.equals(sight.author.id)){ %>
+                    <div>
+                        <a class="btn btn-warning btn-xs" href="/sights/<%=sight._id%>/comments/<%=comment._id%>/edit">Edit!</a>
+                        <form id="delete-form" action="/sights/<%=sight._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
+                            <button class="btn btn-xs btn-danger">Delete</button>
+                        </form>
+                    </div>
+                    <% }%>
+                </div>
+                <%})%>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<% include ../partials/footer %>
