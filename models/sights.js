@@ -5,6 +5,7 @@ var sightSchema=new mongoose.Schema({
    image:String,
    description:String,
    location   :String,
+   city       :String,
    price      :String,
    author:{
       id:{

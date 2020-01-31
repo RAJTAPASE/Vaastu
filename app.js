@@ -25,7 +25,7 @@ methodOverride  =require("method-override");  //This is to use the Put and Delet
 
 
 app.use(require("express-session")({ //Its position needs to be here if the possition is bit changed error would be generated!
-    secret:"Neel Nitin Mukesh",
+    secret:"Its a secret",
     resave: false,
     saveUninitialized: false
 }));

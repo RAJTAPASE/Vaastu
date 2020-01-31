@@ -21,16 +21,17 @@ router.get("/",function(req,res){
 //Posting sights into database
 router.post("/",middleware.isLoggedIn,function(req,res){
     
-     var name= req.body.name;
-     var image = req.body.image;
-     var description=req.body.description;
-     var location   =req.body.location;
-     var price      =req.body.price;
+     var name       = req.body.name;
+     var image      = req.body.image;
+     var description= req.body.description;
+     var location   = req.body.location;
+     var city       = req.body.city;
+     var price      = req.body.price;
      var author     ={
          id: req.user._id,
          username:req.user.username
      };
-     var newSight={name:name,image:image,description:description,author:author,location:location,price:price};
+     var newSight={name:name,image:image,description:description,author:author,location:location,city:city,price:price};
      Sight.create(newSight,function(err,found){
          if(err){
              console.log("Error in the post!");
@@ -78,6 +79,7 @@ router.get("/:id/edit",[middleware.isLoggedIn,middleware.checkUser],function(req
         description:found.description,
         id:found._id,
         location:found.location,
+        city    :found.city,
         price   :found.price
         
     };

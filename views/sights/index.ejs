@@ -4,8 +4,13 @@
     <header class="jumbotron">
         <h1> Welcome to Vastu!</h1>
         <p> View our handpicked locations from all over Mumbai!</p>
-    <a class="btn btn-primary btn-large" href="/sights/new">Wanna Sell?</a>
+    <a class="btn btn-primary btn-large" href="/sights/new">Post?</a>
     </header>
+
+    <div class="form-group" style="width:50%;">
+        <input type="text" name="searchbar" placeholder="Search by City" class="form-control">
+    </div>  
+
     <div class="row text-center" style="display:flex; flex-wrap: wrap;">
         <% sights.forEach(function(sight){ %>
             <div class="col-md-3 col-sm-6">
