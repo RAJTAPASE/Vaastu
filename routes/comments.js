@@ -44,7 +44,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
 })
 
 //Edit
-router.get("/:comment_id/edit",middleware.isLoggedIn,middleware.checkUser,function(req,res){
+router.get("/:comment_id/edit",middleware.isLoggedIn,function(req,res){
     comment.findById(req.params.comment_id,function(err,found){
         if(err){
             console.log(err);
@@ -55,7 +55,7 @@ router.get("/:comment_id/edit",middleware.isLoggedIn,middleware.checkUser,functi
    
 });
 
-router.put("/:comment_id",middleware.isLoggedIn,middleware.checkUser,function(req,res){
+router.put("/:comment_id",middleware.isLoggedIn,function(req,res){
    comment.findByIdAndUpdate(req.params.comment_id,req.body.comment,function(err,foundComment){  //Since we have made a reference to sights we dont need to make any changes in sights it will automatically be changed but if we added more comments in the sights then we need to push the comment
        if(err){
            console.log(err);
@@ -67,7 +67,7 @@ router.put("/:comment_id",middleware.isLoggedIn,middleware.checkUser,function(re
 });
 //Delete
 
-router.delete("/:comment_id",middleware.isLoggedIn,middleware.checkUser,function(req,res){
+router.delete("/:comment_id",middleware.isLoggedIn,function(req,res){
     comment.findByIdAndRemove(req.params.comment_id,function(err){
         if(err){
             console.log(err);

@@ -150,7 +150,7 @@
                         <p class="pull-right"><em>-by <%=comment.author.username%></em></p>
                     </div>
                      <!--currentUser is set in app.js-->
-                    <%if(currentUser && currentUser._id.equals(sight.author.id)){ %>
+                    <%if(currentUser && currentUser._id.equals(comment.author.id)){ %>
                     <div class="ri">
                         <a class="btn btn-warning btn-xs" href="/sights/<%=sight._id%>/comments/<%=comment._id%>/edit">Edit!</a>
                         <form id="delete-form" action="/sights/<%=sight._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
