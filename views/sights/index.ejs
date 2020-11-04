@@ -36,15 +36,10 @@
 <script>
 
 
-$("#input").keyup(()=>{
-    var inp = $("#input").val();
-    
-})
-
 $("#btn").click(function(){
-
     var input = $("#input").val();
     if(input!=""){
+        console.log("Its there!");
     $.ajax({
     method: "POST",
     url: "/jiberrish",
@@ -54,16 +49,11 @@ $("#btn").click(function(){
         var bodyContent = response
     $('body').html(bodyContent);
     })
+    }else{
+        window.location.reload(true);
     }
 
 });
-// .match(/<body>(.*)<\/body>/)[1]
-
-
-// .done(function( msg ) {
-//     console.log("Lets see!");
-//   });
-
 
 </script>
 

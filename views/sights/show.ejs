@@ -1,5 +1,43 @@
 <% include ../partials/header %>
-<div class="container" style="padding-top: 70px;">
+<style>
+   .cent{
+    text-align: center;
+   }
+   
+   .le{
+    text-align: left;
+   }
+
+   .ri{
+    text-align: right;
+   }
+
+   .inl{
+    display: inline;
+   }
+
+   .pow{
+    color:#ccc;
+    font-size:10px; 
+    text-align:right; 
+    width:400px;
+   }
+
+   .cont{
+    padding-top: 70px;
+   }
+
+   .bl{
+    color:#ccc;
+   }
+
+   .sightName{
+    display: inline;
+    color:rgb(70, 133, 204);
+   }
+
+</style>
+<div class="container cont">
     <div class="row">
         <div class="col-md-3">
             <% if(currentUser){ %>
@@ -25,9 +63,7 @@
             <br>
 
             <div class="thumbnail">
-                
-
-                    <h4 style = "text-align: center;"><b>News and Events</b></h4>
+                    <h4 class="cent"><b>News and Events</b></h4>
                 <!-- start sw-rss-feed code --> 
                 <script type="text/javascript"> 
                     rssfeed_url = new Array(); 
@@ -69,7 +105,6 @@
                     </script> 
                     <script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script> 
                     <!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. --> 
-                    <div style="color:#ccc;font-size:10px; text-align:right; width:400px;">powered by <a href="https://surfing-waves.com" rel="noopener" target="_blank" style="color:#ccc;"></a></div>  
                     <!-- end sw-rss-feed code -->
             </div>
 
@@ -80,19 +115,19 @@
             <div class="thumbnail">
                 <img class="img-responsive" src="<%=sight.image%>">
                 <div class="caption-full">
-                    <h1 class="pull-left" style="display: inline; color:rgb(70, 133, 204)"><%=sight.name%></h1>
-                    <h4 style="display: inline;" class="pull-right"><img width="15px" height="17px" src="/rupee-indian.svg"><%=sight.price %></h4>
+                    <h1 class="pull-left" class="sightName"><%=sight.name%></h1>
+                    <h4 class="inl pull-right"><img width="15px" height="17px" src="/rupee-indian.svg"><%=sight.price %></h4>
                     <br>
                     <br>
                     <br>
                     <br>
-                <h4 style="text-align: left;"><%=sight.city.charAt(0).toUpperCase()+sight.city.slice(1) %></h4>
-                        <p style="text-align: left;"><%=sight.description %></p>
-                    <p style="text-align: right;"><em>Submitted by-<%=sight.author.username %></em></p>
+                <h4 class="le"><%=sight.city.charAt(0).toUpperCase()+sight.city.slice(1) %></h4>
+                        <p class="le"><%=sight.description %></p>
+                    <p class="ri"><em>Submitted by-<%=sight.author.username %></em></p>
                     <br>
                 </div>
                 <%if(currentUser && currentUser._id.equals(sight.author.id)){%>
-                <div style="text-align: right;">
+                <div class="ri">
                     <a href="/sights/<%=sight._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
                     <form id="delete-form" action="/sights/<%=sight._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-xs btn-danger">Delete</button>
@@ -109,14 +144,14 @@
                 <%sight.comments.forEach(function(comment){%>
                 <div class="row">
                     <div class="col-md-12">                        
-                        <p style="text-align: left;">
+                        <p class="le">
                             <%=comment.text%>
                         </p>
                         <p class="pull-right"><em>-by <%=comment.author.username%></em></p>
                     </div>
                      <!--currentUser is set in app.js-->
                     <%if(currentUser && currentUser._id.equals(sight.author.id)){ %>
-                    <div style="text-align: right;">
+                    <div class="ri">
                         <a class="btn btn-warning btn-xs" href="/sights/<%=sight._id%>/comments/<%=comment._id%>/edit">Edit!</a>
                         <form id="delete-form" action="/sights/<%=sight._id%>/comments/<%=comment._id%>?_method=DELETE" method="POST">
                             <button class="btn btn-xs btn-danger">Delete</button>
@@ -129,35 +164,5 @@
         </div>
     </div>
 </div>
-
-
-<!-- <script>
-    function initMap() {
-      var lat = <%= sight.lat %>;
-      var lng = <%= sight.lng %>;
-      var center = {lat: lat, lng: lng };
-      var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 8,
-          center: center,
-          scrollwheel: false
-      });
-      var contentString = `
-        <strong><%= sight.name %><br />
-        <%= sight.location %></strong>
-        <p><%= sight.description %></p>
-      `
-      var infowindow = new google.maps.InfoWindow({
-        content: contentString
-      });
-      var marker = new google.maps.Marker({
-          position: center,
-          map: map
-      });
-      marker.addListener('click', function() {
-        infowindow.open(map, marker);
-      });
-    }
-  </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDNhjKWl0Z0VWeNiDjrMIkJCyx3XB9NeMo&callback=initMap"></script> -->
 
 <% include ../partials/footer %>

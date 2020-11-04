@@ -59,16 +59,6 @@ passport.deserializeUser(user.deserializeUser());
 
 
 
-// var sights=[
-//         {name:"Barcelona",image:"https://images.unsplash.com/photo-1548656094-70fd2482b05a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"},
-//         {name:"South Lake",image:"https://images.unsplash.com/photo-1494526585095-c41746248156?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"},
-//         {name:"Naples",image:"https://images.unsplash.com/photo-1496328488450-9c5c5d555148?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"},
-//         {name:"Behrmann",image:"https://images.unsplash.com/photo-1546551613-09c2f83e1ede?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"},
-//         {name:"Barcelona",image:"https://images.unsplash.com/photo-1548656094-70fd2482b05a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1400&q=80"},
-//         {name:"South Lake",image:"https://images.unsplash.com/photo-1494526585095-c41746248156?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80"},
-//         {name:"Naples",image:"https://images.unsplash.com/photo-1496328488450-9c5c5d555148?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1489&q=80"},
-//         {name:"Behrmann",image:"https://images.unsplash.com/photo-1546551613-09c2f83e1ede?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1355&q=80"}
-        //   ];
 
 
 app.get("/",function(req,res){
