@@ -13,8 +13,22 @@
 - **```Editing```** and **```Deleting```** of Comments
 
 - **```Contact Agent```** estates in the city or villages
+
+- **```RSS Feed```** to get new updates on prices
 ---
 ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/43161886/98170566-3b527a00-1f14-11eb-9cf1-0990198d4188.gif)
 
 ---
-Advance Internet Lab mini project
+### Installation
+- ```git clone https://github.com/nitrohub/Vaastu.git ```
+
+- ```cd UI_Improvements```
+
+- ```npm install```
+
+- ```mongod```
+
+- ```node app.js```
+
+---
+> Advance Internet Lab mini project
