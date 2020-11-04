@@ -1,4 +1,4 @@
-# Vastu
+# Vaastu
 
 ## Buy and sell Estates Hassle Free
 
