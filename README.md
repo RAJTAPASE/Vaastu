@@ -22,8 +22,6 @@
 ### Installation
 - ```git clone https://github.com/nitrohub/Vaastu.git ```
 
-- ```cd UI_Improvements```
-
 - ```npm install```
 
 - ```mongod```
