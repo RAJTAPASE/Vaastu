@@ -1,4 +1,7 @@
 <% include ../partials/header %>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <div class="container" style="padding-top:70px;">
     <header class="jumbotron">
         <h1> Welcome to Vastu!</h1>
@@ -7,8 +10,8 @@
     </header>
 
     <div class="form-inline" style="margin-bottom: 0.5em;">
-        <div class="form-group" style="width:50%;"> 
-            <input id="input" type="text" name="searchbar" placeholder="Search by City" class="form-control" style="margin-bottom:12px;"><button class="btn btn-primary" id="btn" style="margin-bottom:12px;">search</button>
+        <div class="form-group" style="width:50%; height: 100%;"> 
+            <input id="input" type="text" name="searchbar" placeholder="Search by City" class="form-control" style="width:80%; margin-bottom:12px;"><button class="btn btn-primary" id="btn" style="margin-bottom:12px;">search</button>
         </div>
     </div>  
 
@@ -31,6 +34,12 @@
 
 
 <script>
+
+
+$("#input").keyup(()=>{
+    var inp = $("#input").val();
+    
+})
 
 $("#btn").click(function(){
 

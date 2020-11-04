@@ -80,15 +80,19 @@
             <div class="thumbnail">
                 <img class="img-responsive" src="<%=sight.image%>">
                 <div class="caption-full">
-                    <h4 class="pull-right">$<%=sight.price %></h4>
-                    <h1><a><%=sight.name%></a></h1><span><h4><%=sight.city.charAt(0).toUpperCase()+sight.city.slice(1) %></h4></span>
-                    <p><%=sight.description %></p>
-                    <p>Location:<%=sight.location %></p>
-                    <p class="pull-right"><em>Submitted by-<%=sight.author.username %></em></p>
+                    <h1 class="pull-left" style="display: inline; color:rgb(70, 133, 204)"><%=sight.name%></h1>
+                    <h4 style="display: inline;" class="pull-right">$<%=sight.price %></h4>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                <h4 style="text-align: left;"><%=sight.city.charAt(0).toUpperCase()+sight.city.slice(1) %></h4>
+                        <p style="text-align: left;"><%=sight.description %></p>
+                    <p style="text-align: right;"><em>Submitted by-<%=sight.author.username %></em></p>
                     <br>
                 </div>
                 <%if(currentUser && currentUser._id.equals(sight.author.id)){%>
-                <div>
+                <div style="text-align: right;">
                     <a href="/sights/<%=sight._id%>/edit" class="btn btn-xs btn-warning">Edit</a>
                     <form id="delete-form" action="/sights/<%=sight._id%>?_method=DELETE" method="POST">
                         <button class="btn btn-xs btn-danger">Delete</button>
