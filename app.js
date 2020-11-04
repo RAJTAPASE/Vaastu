@@ -1,3 +1,4 @@
+// require('dotenv').config();
 var express     = require("express"),
     app         = express(),
     bodyParser  = require("body-parser"),
@@ -72,6 +73,18 @@ passport.deserializeUser(user.deserializeUser());
 
 app.get("/",function(req,res){
     res.render("landing");
+});
+
+app.post("/jiberrish",function(req,res){
+    var city = req.body["key"];
+    Sight.find({ city: city},function(err,foundElement){
+        if(err){
+            console.log(err);
+        }else{
+            res.render("sights/index.ejs",{sights:foundElement});
+            console.log(foundElement);
+        }
+    });
 });
 
 app.listen(9000,process.env.IP,function(){

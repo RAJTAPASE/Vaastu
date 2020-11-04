@@ -1,10 +1,12 @@
 var mongoose=require("mongoose");
 
 var sightSchema=new mongoose.Schema({
-   name:String,
-   image:String,
+   name       :String,
+   image      :String,
    description:String,
    location   :String,
+   // lat        :Number,
+   // lng        :Number,
    city       :String,
    price      :String,
    author:{
